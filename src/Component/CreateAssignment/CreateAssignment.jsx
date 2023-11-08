@@ -8,23 +8,23 @@ const CreateAssignment = () => {
     const handleCreate =(e)=>{
       e.preventDefault()
 
-    const title = e.target.title.value;
-    const marks = e.target.marks.value;
-    const imgUrl = e.target.imgUrl.value;
-    const date = e.target.date.value;
-    const category = e.target.category.value;
-    const description = e.target.description.value;
+    const Title = e.target.Title.value;
+    const Marks = e.target.Marks.value;
+    const ImgUrl = e.target.ImgUrl.value;
+    const Deadline = e.target.Deadline.value;
+    const Difficulty = e.target.Difficulty.value;
+    const Description = e.target.Description.value;
     const createData = {
-      title,
-      marks,
-      imgUrl,
-      date,
-      category,
-      description,
-      Owneremail : user?.email
+      Title,
+      Marks,
+      ImgUrl,
+      Deadline,
+      Difficulty,
+      Description,
+      ownerEmail : user?.email
     }
     
-    fetch("http://localhost:5000/createAssignment", {
+    fetch("http://localhost:5000/assignments", {
       method: "POST", 
       headers: {
           'content-type': 'application/json',
@@ -54,30 +54,30 @@ const CreateAssignment = () => {
           <label className="label">
             <span className="label-text">Title</span>
           </label>
-          <input type="text" name="title" placeholder="Assignment Title" className="input input-bordered" required />
+          <input type="text" name="Title" placeholder="Assignment Title" className="input input-bordered" required />
         </div>
         
         <div className="form-control">
           <label className="label">
             <span className="label-text">Marks</span>
           </label>
-          <input type="text" name="marks" placeholder="Assignment marks" className="input input-bordered" required />
+          <input type="text" name="Marks" placeholder="Assignment Marks" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Thumbral Url</span>
           </label>
-          <input type="text" name="imgUrl" placeholder="Assignment Thumbral Url" className="input input-bordered" required />
+          <input type="text" name="ImgUrl" placeholder="Assignment Thumbral Url" className="input input-bordered" required />
         </div>
       
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Due Date</span>
+            <span className="label-text">Due Deadline</span>
           </label>
-          <input type="date" name="date" className="input input-bordered" required />
+          <input type="date" name="Deadline" className="input input-bordered" required />
         </div>
       </div>
-      <select name="category" id="category" className="font-bold text-xl bg-buttonColor rounded-md">
+      <select name="Difficulty" id="Difficulty" className="font-bold text-xl bg-buttonColor rounded-md">
                 <option value="hard">hard</option>
                 <option value="medium">medium</option>
                 <option value="easy">easy</option>
@@ -86,7 +86,7 @@ const CreateAssignment = () => {
           <label className="label">
             <span className="label-text">Description</span>
           </label>
-         <textarea className="rounded-lg" name="description" id="" cols="30" rows="5" required></textarea>
+         <textarea className="rounded-lg" name="Description" id="" cols="30" rows="5" required></textarea>
         </div>
         <div className="form-control mt-6 flex ">
          

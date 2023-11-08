@@ -8,9 +8,17 @@ const AssignmentDetails = () => {
   
     return (
         <div>
-          <div>
-            <img src={ImgUrl} alt="" />
-          </div>
+         <div className="hero min-h-screen text-mainTextcolor">
+  <div className="hero-content flex-col lg:flex-row-reverse">
+    <img src={ImgUrl} className="max-w-sm rounded-lg shadow-2xl" />
+    <div>
+      <h1 className="text-5xl font-bold">{Title} <span className="badge badge-secondary badge-outline">{Difficulty}</span> </h1>
+      <p className="py-6">{Description}</p>
+      <div className="tex-xl my-3 font-bold"><h2>Total Mark : {Marks}</h2> <h2>Dethline : {Deadline}</h2></div>
+      <button className="btn btn-accent w-1/2">get Assignment</button>
+    </div>
+  </div>
+</div>
         </div>
     );
 };
