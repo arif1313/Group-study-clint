@@ -8,8 +8,9 @@ import swal from "sweetalert";
 const AssignmentDetails = () => {
   const { user} = useContext(AutContext);
     const Singleassignment = useLoaderData();
-    const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}= Singleassignment;
+    const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline,Status}= Singleassignment;
    const handleAddAssignment =()=>{
+  
     const myTakeTask = {
       Title,
       Marks,
@@ -37,6 +38,7 @@ const AssignmentDetails = () => {
           swal('Assignment goted')
         }
       });
+  
    }
     return (
         <div>

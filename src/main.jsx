@@ -23,6 +23,7 @@ import AssignmentDetails from './Component/AssignmentDetails/AssignmentDetails.j
 import TakenAssignment from './Component/TakenAssignment/TakenAssignment.jsx';
 import Update from './Component/Update/Update.jsx';
 import Privet from './Component/Privet/Privet.jsx';
+import Submitio from './Component/Submition/Submitio.jsx';
 
 
 const router = createBrowserRouter([
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       path: '/update/:id',
       element:<Privet><Update></Update></Privet>,
       loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
+    },
+    {
+      path: '/submition',
+      element: <Submitio></Submitio>
     }
      
      

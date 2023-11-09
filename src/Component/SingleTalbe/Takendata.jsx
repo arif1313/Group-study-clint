@@ -1,12 +1,11 @@
 import { useState } from "react";
-import swal from "sweetalert";
+import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 
 const Takendata = ({taken,handleSubmit}) => {
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline,gotUserEmail,assingnment_Id,Status}=taken;
   
-    const [click, setClick]=useState(false);
-    console.log(click)
   
     return (
 
@@ -38,8 +37,12 @@ const Takendata = ({taken,handleSubmit}) => {
             <button className="btn btn-warning font-bold btn-xs">{Status}</button>
           </td>
           <td >
-           <div className={click&&'hidden'}>
-           <button className={`btn btn-secondary font-bold btn-xs` } onClick={()=>handleSubmit(_id,setClick)} >submit</button>
+           <div>
+            {
+                Status!=='submited'&&
+  <Link to={`/submition/${_id}`} className={`btn btn-secondary font-bold btn-xs` } onClick={()=>handleSubmit(_id)} >submit</Link>
+            }
+         
            </div>
           </td>
         </tr>

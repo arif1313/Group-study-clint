@@ -21,7 +21,8 @@ const CreateAssignment = () => {
       Deadline,
       Difficulty,
       Description,
-      ownerEmail : user?.email
+      ownerEmail : user?.email,
+      
     }
     
     fetch("http://localhost:5000/assignments", {
