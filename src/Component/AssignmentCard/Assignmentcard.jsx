@@ -1,16 +1,25 @@
 
 
 
+import { useContext } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import { AutContext } from "../Contex/ContexApi";
 
-const Assignmentcard = ({Assignment,handleDelete,handleupdate}) => {
+const Assignmentcard = ({Assignment,handleDelete}) => {
+    const { user } = useContext(AutContext);
+    const userMail = user?.email;
+    console.log(userMail)
     
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}=Assignment;
 
-   
+   const handleUpdeteFaild =()=>{
+    if(userMail!==ownerEmail){
+        swal('you can not update this assignment')
+    }
+   }
 
-    
     return (
         <div className='mt-7 relative'>
         <div  className='flex gap-16 mb-5 shadow-lg rounded-lg bg-divColor' >
@@ -32,9 +41,8 @@ const Assignmentcard = ({Assignment,handleDelete,handleupdate}) => {
            
           
          
-          <button  onClick={()=>handleupdate(_id,ownerEmail)} className='btn btn-warning btn-sm'>Update!</button>
          
-          <Link to={`/update/${_id}`}  className='btn btn-warning btn-sm'>Update!</Link>
+          <Link to={ownerEmail===userMail&&`/update/${_id}`} onClick={handleUpdeteFaild} className='btn btn-warning btn-sm'>Update</Link>
          
          
          <Link to={`/assignmentsDetails/${_id}`}> <button  className="btn btn-circle absolute btn-outline right-5 bottom-3">

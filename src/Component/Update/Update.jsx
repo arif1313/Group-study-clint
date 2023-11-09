@@ -1,37 +1,39 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import getFormData from "../../utilities/getFormData";
+import { useContext } from "react";
+import { AutContext } from "../Contex/ContexApi";
 
 
 const Update = () => {
+   
     const assignment = useLoaderData();
     const navigate =useNavigate();
    const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}=assignment;
-   const handleSubmitUpdate =(e)=>{
+   const handleSubmitUpdate =(e,ownerEmail)=>{
     e.preventDefault()
-
     
    const updatedData = getFormData(e);
   console.log('updatedata',updatedData);
   console.log(ownerEmail,_id)
+  fetch(`http://localhost:5000/assignments/${_id}`,{
+    method: 'PUT',
+    headers:{
+        "content-type": "application/json",
+    },
+    body: JSON.stringify(updatedData),
+    
+})
+.then(res=>res.json())
+.then(data => {
+    console.log(data);
+    if(data.modifiedCount >0){
+        swal('updated succesfully')
+        navigate('/')
+        // updata state
+    }
+})
 
-    fetch(`http://localhost:5000/assignments/${_id}`,{
-        method: 'PUT',
-        headers:{
-            "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedData),
-        
-    })
-    .then(res=>res.json())
-    .then(data => {
-        console.log(data);
-        if(data.modifiedCount >0){
-            swal('updated succesfully')
-            navigate('/')
-            // updata state
-        }
-    })
 
    }
 
@@ -40,7 +42,7 @@ const Update = () => {
             <div>
             <div className="hero min-h-screen ">
     <div className="card flex-shrink-0 w-full shadow-2xl bg-divColor">
-      <form className="card-body" onSubmit={handleSubmitUpdate}>
+      <form className="card-body" onSubmit={()=>handleSubmitUpdate(ownerEmail)}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
      
         <div className="form-control">

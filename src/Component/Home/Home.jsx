@@ -45,32 +45,9 @@ const Home = () => {
         }
 
     }
-    const handleupdate = (id, ownerEmail) => {
-        fetch(`http://localhost:5000/assignments/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({ Marks:'70' })
+   
 
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.modifiedCount > 0) {
-                    swal('updated succesfully')
-                    const remaining = assignments.filter(assignment => assignment._id !== id)
-                    const updated =assignments.find(assignment=>assignment._id == id)
-                    updated.Marks ='70'
-                    const newAssignment = [updated,...remaining]
-                    setAsssignmen(newAssignment);
-
-                }
-            })
-
-    }
-
-    // console.log('my data is ',allassignments)
+   
 
 
     return (
@@ -89,7 +66,7 @@ const Home = () => {
 
             </div >
             {
-                assignments.map(assignment => <Assignmentcard key={assignment._id} Assignment={assignment} handleDelete={handleDelete} handleupdate={handleupdate} ></Assignmentcard>)
+                assignments.map(assignment => <Assignmentcard key={assignment._id} Assignment={assignment} handleDelete={handleDelete}  ></Assignmentcard>)
             }
         </div>
     );
