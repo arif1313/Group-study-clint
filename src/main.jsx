@@ -21,6 +21,7 @@ import Error from './Component/ErrorPage/Error';
 import CreateAssignment from './Component/CreateAssignment/CreateAssignment.jsx';
 import AssignmentDetails from './Component/AssignmentDetails/AssignmentDetails.jsx';
 import TakenAssignment from './Component/TakenAssignment/TakenAssignment.jsx';
+import Update from './Component/Update/Update.jsx';
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
     {
      path:'/takenAssingment',
      element: <TakenAssignment></TakenAssignment>
+    },
+    {
+      path: '/update/:id',
+      element:<Update></Update>,
+      loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
     }
      
      

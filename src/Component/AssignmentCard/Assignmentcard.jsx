@@ -4,7 +4,7 @@
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const Assignmentcard = ({Assignment,handleDelete}) => {
+const Assignmentcard = ({Assignment,handleDelete,handleupdate}) => {
     
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}=Assignment;
 
@@ -30,7 +30,11 @@ const Assignmentcard = ({Assignment,handleDelete}) => {
            <button className='btn btn-accent btn-sm mr-7' onClick={()=>handleDelete(_id,ownerEmail)}>delete</button>
           
            
-          <button className='btn btn-warning btn-sm'>Update</button>
+          
+         
+          <button  onClick={()=>handleupdate(_id,ownerEmail)} className='btn btn-warning btn-sm'>Update!</button>
+         
+          <Link to={`/update/${_id}`}  className='btn btn-warning btn-sm'>Update!</Link>
          
          
          <Link to={`/assignmentsDetails/${_id}`}> <button  className="btn btn-circle absolute btn-outline right-5 bottom-3">
