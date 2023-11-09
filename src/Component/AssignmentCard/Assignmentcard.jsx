@@ -4,9 +4,12 @@
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const Assignmentcard = ({Assignment}) => {
+const Assignmentcard = ({Assignment,handleDelete}) => {
     
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}=Assignment;
+
+   
+
     
     return (
         <div className='mt-7 relative'>
@@ -24,7 +27,7 @@ const Assignmentcard = ({Assignment}) => {
             Due Date :{Deadline}
           
            <div>
-           <button className='btn btn-accent btn-sm mr-7'>delete</button>
+           <button className='btn btn-accent btn-sm mr-7' onClick={()=>handleDelete(_id,ownerEmail)}>delete</button>
           
            
           <button className='btn btn-warning btn-sm'>Update</button>

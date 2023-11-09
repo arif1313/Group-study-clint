@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AutContext } from "../Contex/ContexApi";
-
+import swal from 'sweetalert';
 
 const CreateAssignment = () => {
     const { user } = useContext(AutContext);
@@ -35,7 +35,7 @@ const CreateAssignment = () => {
   .then(data => {
       console.log(data);
       if(data.insertedId){
-          alert('service book successfully')
+        swal("Good job!", "You clicked the button!", "success");
       }
   });
 

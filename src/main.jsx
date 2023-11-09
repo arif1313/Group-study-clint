@@ -20,6 +20,7 @@ import Login from './Component/Login/Login';
 import Error from './Component/ErrorPage/Error';
 import CreateAssignment from './Component/CreateAssignment/CreateAssignment.jsx';
 import AssignmentDetails from './Component/AssignmentDetails/AssignmentDetails.jsx';
+import TakenAssignment from './Component/TakenAssignment/TakenAssignment.jsx';
 
 
 const router = createBrowserRouter([
@@ -31,8 +32,8 @@ const router = createBrowserRouter([
 
       {
         path: '/',
-        element: <Home></Home>,
-        loader:()=>fetch('http://localhost:5000/assignments')
+        element: <Home></Home>
+        // loader:()=>fetch('http://localhost:5000/assignments')
    
       },
       {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
      
       
+    },
+    {
+     path:'/takenAssingment',
+     element: <TakenAssignment></TakenAssignment>
     }
      
      

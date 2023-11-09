@@ -1,11 +1,53 @@
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
 import Assignmentcard from "../AssignmentCard/Assignmentcard";
+import { useContext, useEffect, useState } from "react";
+import { AutContext } from "../Contex/ContexApi";
+
 
 
 const Home = () => {
-    const assignments= useLoaderData();
-    console.log(assignments)
-    
+    const { user } = useContext(AutContext);
+    const usermail= user?.email;
+    console.log( 'usermail is ',usermail);
+const [assignments, setAsssignmen]= useState([]);
+    // const assignments= useLoaderData();
+    useEffect(()=>{
+        fetch('http://localhost:5000/assignments')
+        .then(res=>res.json())
+        .then(data=>setAsssignmen(data))
+    },[])
+
+    const handleDelete =(id,ownerEmail)=>{
+
+       if(usermail===ownerEmail){
+        const procced = confirm('are you sure to delete? ')
+        if(procced){
+            fetch(`http://localhost:5000/assignments/${id}`,
+            {
+                method:'DELETE'
+
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+                if(data.deletedCount >0 ){
+                   swal('delete succes')
+                    const remaining = assignments.filter(assignment=>assignment._id !==id )
+                    setAsssignmen(remaining);
+                }
+            })
+
+        }
+       }
+       else{
+        swal('you can not delete it ')
+       }
+        
+    }
+// console.log('my data is ',allassignments)
+ 
+   
     return (
         <div>
             <div className="flex">
@@ -22,7 +64,7 @@ const Home = () => {
            
         </div >
        {
-        assignments.map(assignment=><Assignmentcard key={assignment._id} Assignment={assignment}></Assignmentcard>)
+        assignments.map(assignment=><Assignmentcard key={assignment._id} Assignment={assignment} handleDelete={handleDelete}></Assignmentcard>)
        }
         </div>
     );
