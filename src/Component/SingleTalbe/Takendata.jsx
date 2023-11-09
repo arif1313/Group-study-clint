@@ -40,7 +40,7 @@ const Takendata = ({taken,handleSubmit}) => {
            <div>
             {
                 Status!=='submited'&&
-  <Link to={`/submition/${_id}`} className={`btn btn-secondary font-bold btn-xs` } onClick={()=>handleSubmit(_id)} >submit</Link>
+  <Link to={`/submition/${_id} ` }className={`btn btn-secondary font-bold btn-xs` } onClick={()=>handleSubmit(_id)} >submit</Link>
             }
          
            </div>

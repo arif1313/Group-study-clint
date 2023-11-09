@@ -68,8 +68,10 @@ const router = createBrowserRouter([
       loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
     },
     {
-      path: '/submition',
-      element: <Submitio></Submitio>
+      path: '/submition/:id',
+      element: <Submitio></Submitio>,
+      loader: ({params})=>fetch(`http://localhost:5000/takenAssignment/${params.id}`)
+     
     }
      
      

@@ -28,13 +28,7 @@ const TakenAssignment = () => {
             .then(data => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
-
-
-                    swal("Click on either the button or outside the modal.")
-                    .then((value) => {
-                      swal(`The returned value is: ${value}`);
-                    });
-                    swal("Good job!", "You clicked the button!", "success");
+                   
                 //   ljdojf
                 const remaining = takeassignment.filter(take => take._id!==id);
                 const updated = takeassignment.find(take=> take._id===id)

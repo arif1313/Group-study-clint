@@ -1,30 +1,48 @@
-import { useContext, useEffect } from "react";
-import getFormData from "../../utilities/getFormData";
+import { useContext } from "react";
 
 import moment from 'moment';
 import { AutContext } from "../Contex/ContexApi";
-
+import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
 
 const Submitio = () => {
-    useEffect(()=>{
-        fetch(`http://localhost:5000/mytakenAssignment/${id}`
-
-    },[])
-    
+    const submitiontargetdata = useLoaderData();
+    const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline,gotUserEmail,assingnment_Id,Status}= submitiontargetdata;
+    console.log(submitiontargetdata)
+console.log(Object.keys(submitiontargetdata).join(","))
     const { user } = useContext(AutContext);
+
     const handleSubmit =(e)=>{
+        e.preventDefault();
        
        const submitLink= e.target.submitlink.value;
        const submitionTime = moment().format("MMM Do YY"); 
        const submiteddata = {
+        ownerEmail,
         submitLink,
         submiedMail: user?.email,
         submitionTime,
-        submitionAssId:_id,
-
-
-
+        submitionAssId:assingnment_Id,
+        Title,
+        Marks,
+        Description,
+        Deadline
        }
+
+       fetch("http://localhost:5000/submition", {
+        method: "POST", 
+        headers: {
+            'content-type': 'application/json',
+        }, 
+        body: JSON.stringify(submiteddata),
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.insertedId){
+          swal("Good job!", "You clicked the button!", "success");
+        }
+    });
 
     }
     return (
