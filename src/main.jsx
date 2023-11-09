@@ -58,8 +58,8 @@ const router = createBrowserRouter([
       
     },
     {
-     path:'/takenAssingment',
-     element: <TakenAssignment></TakenAssignment>
+     path:'/task',
+     element: <Privet><TakenAssignment></TakenAssignment></Privet>
     },
     {
       path: '/update/:id',

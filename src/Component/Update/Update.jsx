@@ -1,8 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import getFormData from "../../utilities/getFormData";
-import { useContext } from "react";
-import { AutContext } from "../Contex/ContexApi";
+
 
 
 const Update = () => {
