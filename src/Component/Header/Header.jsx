@@ -21,6 +21,7 @@ const Header = () => {
     user&& <>
      <li><NavLink to="/creatass">Creat Assignment</NavLink></li>
      <li><NavLink to="/task">Your Task</NavLink></li>
+     <li><NavLink to="/marked">Give Mark</NavLink></li>
     
     </>
   }

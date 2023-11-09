@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { AutContext } from "../Contex/ContexApi";
 import Takendata from "../SingleTalbe/Takendata";
 
-import swal from "sweetalert";
 
 
 const TakenAssignment = () => {

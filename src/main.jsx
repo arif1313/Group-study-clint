@@ -24,6 +24,7 @@ import TakenAssignment from './Component/TakenAssignment/TakenAssignment.jsx';
 import Update from './Component/Update/Update.jsx';
 import Privet from './Component/Privet/Privet.jsx';
 import Submitio from './Component/Submition/Submitio.jsx';
+import Marked from './Component/MarkedAss/Marked.jsx';
 
 
 const router = createBrowserRouter([
@@ -32,7 +33,6 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <Error></Error>,
     children:[
-
       {
         path: '/',
         element: <Home></Home>
@@ -56,7 +56,6 @@ const router = createBrowserRouter([
       element:<Privet> <AssignmentDetails></AssignmentDetails></Privet>,
       loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
      
-      
     },
     {
      path:'/task',
@@ -72,13 +71,13 @@ const router = createBrowserRouter([
       element: <Submitio></Submitio>,
       loader: ({params})=>fetch(`http://localhost:5000/takenAssignment/${params.id}`)
      
-    }
-     
-     
+    },
+    {
+      path: '/marked',
+      element: <Marked></Marked>
+    }  
     ]
-   
-   
-  },
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
