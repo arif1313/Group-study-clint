@@ -3,6 +3,7 @@ import swal from "sweetalert";
 import Assignmentcard from "../AssignmentCard/Assignmentcard";
 import { useContext, useEffect, useState } from "react";
 import { AutContext } from "../Contex/ContexApi";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -11,6 +12,7 @@ const Home = () => {
     const usermail = user?.email;
     console.log('usermail is ', usermail);
     const [assignments, setAsssignmen] = useState([]);
+    const navigate = useNavigate();
     // const assignments= useLoaderData();
     useEffect(() => {
         fetch('http://localhost:5000/assignments')
@@ -20,6 +22,7 @@ const Home = () => {
 
     const handleDelete = (id, ownerEmail) => {
 
+      if(usermail){
         if (usermail === ownerEmail) {
             const procced = confirm('are you sure to delete? ')
             if (procced) {
@@ -41,8 +44,11 @@ const Home = () => {
             }
         }
         else {
-            swal('you can not delete it ')
+            swal('you can not delete it, it is not your post ')
         }
+      }else{
+        navigate('/login')
+      }
 
     }
    

@@ -3,7 +3,7 @@
 
 import { useContext } from "react";
 import { BsArrowRight } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AutContext } from "../Contex/ContexApi";
 
@@ -11,13 +11,19 @@ const Assignmentcard = ({Assignment,handleDelete}) => {
     const { user } = useContext(AutContext);
     const userMail = user?.email;
     console.log(userMail)
+    const navigate =useNavigate();
     
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}=Assignment;
 
    const handleUpdeteFaild =()=>{
-    if(userMail!==ownerEmail){
-        swal('you can not update this assignment')
+    if(userMail){
+        if(userMail!==ownerEmail){
+            swal('you can not update this assignment! This assignment is not your post')
+        }
+    }else{
+        navigate('/login')
     }
+   
    }
 
     return (

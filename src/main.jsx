@@ -22,6 +22,7 @@ import CreateAssignment from './Component/CreateAssignment/CreateAssignment.jsx'
 import AssignmentDetails from './Component/AssignmentDetails/AssignmentDetails.jsx';
 import TakenAssignment from './Component/TakenAssignment/TakenAssignment.jsx';
 import Update from './Component/Update/Update.jsx';
+import Privet from './Component/Privet/Privet.jsx';
 
 
 const router = createBrowserRouter([
@@ -47,11 +48,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/creatass',
-        element: <CreateAssignment></CreateAssignment>
+        element:<Privet> <CreateAssignment></CreateAssignment></Privet>
       },
     {
       path: '/assignmentsDetails/:id',
-      element: <AssignmentDetails></AssignmentDetails>,
+      element:<Privet> <AssignmentDetails></AssignmentDetails></Privet>,
       loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
      
       
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
     },
     {
       path: '/update/:id',
-      element:<Update></Update>,
+      element:<Privet><Update></Update></Privet>,
       loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
     }
      
