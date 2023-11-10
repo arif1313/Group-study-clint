@@ -39,6 +39,7 @@ const CreateAssignment = () => {
         swal("Good job!", "You clicked the button!", "success");
       }
   });
+  e.target.reset();
 
 };
 

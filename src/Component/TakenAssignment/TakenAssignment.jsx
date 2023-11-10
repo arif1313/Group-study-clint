@@ -57,10 +57,10 @@ const TakenAssignment = () => {
                             <th></th>
                         </tr>
                     </thead>
-                    {takeassignment.length > 0 ?
+                    {takeassignment.length > 0 &&
 
                         takeassignment.map(taken => <Takendata key={taken._id} taken={taken} handleSubmit={handleSubmit}></Takendata>)
-                        : <h1 className="text-2xl font-bold text-center text-mainTextcolor mt-16">Your Taken Assingnment is Emtty</h1>}
+                     }
 
 
 

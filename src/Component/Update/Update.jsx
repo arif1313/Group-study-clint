@@ -31,8 +31,9 @@ const Update = () => {
         navigate('/')
         // updata state
     }
-})
 
+})
+ e.target.reset();
 
    }
 

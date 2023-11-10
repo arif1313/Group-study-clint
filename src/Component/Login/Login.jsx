@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AutContext } from "../Contex/ContexApi";
 import { FcGoogle } from "react-icons/fc";
@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import loginimg from '../../../public/images/R-removebg-preview.png'
+import axios from "axios";
 
 
 const Login = () => {
@@ -22,7 +23,7 @@ const Login = () => {
     gogleSignIn()
       .then(result => {
         navigate(location?.state ? location.state : '/')
-        console.log(result.user)
+        console.log(result.LoggedInUser)
       })
       .catch(error => {
         console.error(error.message)
@@ -64,10 +65,22 @@ const Login = () => {
 
     SinIn(email, password)
       .then(result => {
+        const LoggedInUser = result.user;
+      
+        // access token
+        console.log(LoggedInUser)
+        const user = {email};
+       
+        axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
+        .then(res =>{
+          console.log(res.data)
+          if(res.data.success){
+              navigate(location?.state ? location.state : '/')
+          }
+        })
 
-        navigate(location?.state ? location.state : '/')
-        console.log(result.user)
-        e.target.reset();
+
+
       })
       .catch(error => {
         console.log(error)

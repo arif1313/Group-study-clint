@@ -1,16 +1,24 @@
 import { useContext, useEffect, useState } from "react";
 import { AutContext } from "../Contex/ContexApi";
 import SingleMark from "./SingleMark";
+import axios from "axios";
 
 
 const Marked = () => {
     const { user} = useContext(AutContext);
     const [submitons, setSubmitions]= useState([]);
+    const url = `http://localhost:5000/submition?email=${user?.email}`
     useEffect(() => {
-        fetch(`http://localhost:5000/submition?email=${user?.email}`)
-            .then((res) => res.json())
-            .then((data) => setSubmitions(data));
-    }, [user]);
+        axios.get(url,{withCredentials: true })
+        .then(res=>{
+            setSubmitions(res.data)
+        })
+        // fetch(`http://localhost:5000/submition?email=${user?.email}`)
+        //     .then((res) => res.json())
+        //     .then((data) => setSubmitions(data));
+    }, [url]);
+
+   
     console.log(submitons);
     return (
         <div>

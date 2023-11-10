@@ -43,6 +43,7 @@ console.log(Object.keys(submitiontargetdata).join(","))
           swal("Good job!", "You clicked the button!", "success");
         }
     });
+    e.target.reset();
 
     }
     return (
@@ -64,7 +65,7 @@ console.log(Object.keys(submitiontargetdata).join(","))
  
         <div className="form-control mt-6 flex justify-center text-center">
          
-           <div> <button className="btn btn-warning w-1/2 " >Update</button></div>
+           <div> <button className="btn btn-warning w-1/2 " >submit</button></div>
         
         </div>
       </form>
