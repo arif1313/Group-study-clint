@@ -3,8 +3,8 @@ import swal from "sweetalert";
 import Assignmentcard from "../AssignmentCard/Assignmentcard";
 import { useContext, useEffect, useState } from "react";
 import { AutContext } from "../Contex/ContexApi";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useLoaderData, useNavigate } from "react-router-dom";
+// import axios from "axios";
 
 
 
@@ -15,15 +15,12 @@ const Home = () => {
     const [assignments, setAsssignmen] = useState([]);
     const navigate = useNavigate();
     // const assignments= useLoaderData();
-    const url='http://localhost:5000/assignments';
+    
+   
     useEffect(() => {
-        axios.get(url,{withCredentials: true })
-        .then(res=>{
-            setAsssignmen(res.data)
-        })
-        // fetch()
-        //     .then(res => res.json())
-        //     .then(data => setAsssignmen(data))
+        fetch('http://localhost:5000/assignments')
+            .then(res => res.json())
+            .then(data => setAsssignmen(data))
     }, [])
 
     const handleDelete = (id, ownerEmail) => {

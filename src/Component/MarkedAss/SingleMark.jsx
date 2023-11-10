@@ -8,7 +8,7 @@ const SingleMark = ({ submition }) => {
     const { _id, ownerEmail, submitLink, submiedMail, submitionTime, submitionAssId, Title, Marks, Description, Deadline, ObtainMark } = submition;
     const handleMark = (e) => {
         e.preventDefault()
-        const form = e.target;
+      
         const updatedData = getFormData(e);
         console.log(updatedData);
         fetch(`http://localhost:5000/submition/${_id}`, {
@@ -36,16 +36,17 @@ const SingleMark = ({ submition }) => {
         <div className="mb-7">
             <div className="card  bg-mainTextcolor shadow-xl image-full">
                 <div className="card-body">
-                    <div className="flex justify-around ">
-                        <div className="space-y-3 text-xl  ">
-                            <a className="" href={submitLink}>{submitLink}</a>
+                    <div className="flex justify-between px-12 ">
+                        <div className="space-y-3 text-xl text-buttonColor">
+                            Assignment link: <a className="text-[#FFFF00] underline " href={submitLink}>{submitLink}</a>
 
-                            <p>assignment Title : {Title}</p>
+                            <p >assignment Title : {Title}</p>
                             <p>Assignment Id : {submitionAssId}</p>
                             <p>Submited by : {submiedMail}</p>
                             <p>Submited Dathline : {Deadline}</p>
                             <p>Submited on : {submitionTime}</p>
                             <p>Total Mark : {Marks}</p>
+                            <p className="text-divColor font-bold">Obtain Mark : <span className="text-2xl text-[#FFFF00]"> {ObtainMark}</span> </p>
                         </div>
 
                         <div>

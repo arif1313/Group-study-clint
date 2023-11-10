@@ -1,16 +1,25 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import moment from 'moment';
 import { AutContext } from "../Contex/ContexApi";
 import { useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
 
-const Submitio = () => {
+
+const Submitio =  () => {
     const submitiontargetdata = useLoaderData();
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline,gotUserEmail,assingnment_Id,Status}= submitiontargetdata;
-    console.log(submitiontargetdata)
-console.log(Object.keys(submitiontargetdata).join(","))
+    const [isSubmitted, setSubmitted] = useState(false);
     const { user } = useContext(AutContext);
+
+    useEffect(() => {
+      // Check if the assignment has been submitted by reading from localStorage
+      const isAssignmentSubmitted = localStorage.getItem('isAssignmentSubmitted');
+      if (isAssignmentSubmitted) {
+        setSubmitted(true);
+      }
+    }, []);
+  
 
     const handleSubmit =(e)=>{
         e.preventDefault();
@@ -43,6 +52,12 @@ console.log(Object.keys(submitiontargetdata).join(","))
           swal("Good job!", "You clicked the button!", "success");
         }
     });
+// //////////
+setSubmitted(true);
+
+// Store the information in localStorage to persist it across page reloads
+localStorage.setItem('isAssignmentSubmitted', 'true');
+    // //////////
     e.target.reset();
 
     }
@@ -64,9 +79,9 @@ console.log(Object.keys(submitiontargetdata).join(","))
       </div>
  
         <div className="form-control mt-6 flex justify-center text-center">
-         
-           <div> <button className="btn btn-warning w-1/2 " >submit</button></div>
-        
+         {
+          !isSubmitted&& <div> <button className="btn btn-warning w-1/2 " >submit</button></div>
+        }
         </div>
       </form>
       <div className=" w-full flex justify-center mb-3">
