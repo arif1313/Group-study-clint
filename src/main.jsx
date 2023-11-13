@@ -25,6 +25,7 @@ import Update from './Component/Update/Update.jsx';
 import Privet from './Component/Privet/Privet.jsx';
 import Submitio from './Component/Submition/Submitio.jsx';
 import Marked from './Component/MarkedAss/Marked.jsx';
+import Features from './Component/Features/Features.jsx';
 
 
 const router = createBrowserRouter([
@@ -68,13 +69,18 @@ const router = createBrowserRouter([
     },
     {
       path: '/submition/:id',
-      element: <Submitio></Submitio>,
+      element: <Privet><Submitio></Submitio></Privet>,
       loader: ({params})=>fetch(`http://localhost:5000/takenAssignment/${params.id}`)
      
     },
     {
       path: '/marked',
-      element: <Marked></Marked>
+      element:<Privet><Marked></Marked></Privet>
+    },
+    {
+      path: '/features',
+      element: <Features></Features>,
+       loader:()=>fetch('http://localhost:5000/features')
     }  
     ]
   }

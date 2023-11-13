@@ -5,7 +5,8 @@ import { useContext, useEffect, useState } from "react";
 import { AutContext } from "../Contex/ContexApi";
 
 import { useRef } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
+import Carosol from "../Carosol/Carosol";
 // import axios from "axios";
 
 
@@ -17,7 +18,6 @@ const Home = () => {
     const [displayAssign, setDisplayAssign]= useState([]);
     const [assignments, setAsssignmen] = useState([]);
   const navigate = useNavigate();
-    const SearchRef = useRef(null)
     const CaraRef = useRef(null)
     // const assignments= useLoaderData();
     
@@ -25,28 +25,24 @@ const Home = () => {
     useEffect(() => {
         fetch('http://localhost:5000/assignments')
             .then(res => res.json())
-            .then(data => setAsssignmen(data))
+            .then(data =>{
+                setDisplayAssign(data)
+                setAsssignmen(data)
+            })
     }, [])
-
-    const handlechange =()=>{
-        const seach =SearchRef.current.value;
-        console.log('seach ',seach )
-      
-     if(seach==='')
-     {
-
-        setDisplayAssign(assignments)
-     }
-     else{
-        const searchResult = assignments.filter(obj=>obj.Title.includes(seach))
-      
-        setDisplayAssign(searchResult);
-     }
-       
-    }
+    console.log(assignments)
+    console.log(displayAssign)
+   
+    console.log('hello')
 const handleSector =()=>{
+  
    const catagory = CaraRef.current.value;
    console.log('catagory',catagory)
+   if(catagory==='all')
+   {
+    setDisplayAssign(assignments)
+    return
+   }
    const searchResult = assignments.filter(obj=>obj.Difficulty === catagory)
       if(searchResult.length > 0 )
       {
@@ -57,7 +53,6 @@ const handleSector =()=>{
       }
   
 }
-
     const handleDelete = (id,ownerEmail) => {
 
       if(usermail){
@@ -89,10 +84,9 @@ const handleSector =()=>{
       }
 
     }
-   
     return (
         <div>
-            <h2 className="text-3xl font-bold  text-center p-5">Assignments</h2>
+            <Carosol></Carosol>
            
             <div className="flex justify-center items-center">
             <div  className="text-center p-5 text-2xl font-bold text-mainTextcolor"><h2>
@@ -100,10 +94,11 @@ const handleSector =()=>{
                 </h2>
                 </div>
                 <select ref={CaraRef} onInput={handleSector} name="category" id="category" className="font-bold text-xl bg-buttonColor rounded-md w-1/3 p-2 text-center ">
+                <option value="all">All</option>
                     <option value="hard">hard</option>
                     <option value="medium">medium</option>
                     <option value="easy">easy</option>
-
+                 
                 </select>   
             
             </div >

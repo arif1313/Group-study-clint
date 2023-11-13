@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AutContext } from "../Contex/ContexApi";
 import Takendata from "../SingleTalbe/Takendata";
+import Hearo from "../Hero Layout/Hearo";
 
 
 
@@ -44,8 +45,10 @@ const TakenAssignment = () => {
 
     return (
         <div>
+            
+                 <Hearo></Hearo>
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table sm:mx-auto">
                     {/* head */}
                     <thead className="bg-buttonColor text-lg font-bold text-mainTextcolor">
                         <tr>

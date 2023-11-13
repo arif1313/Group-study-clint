@@ -5,10 +5,11 @@ import { useState } from "react";
 const SingleMark = ({ submition }) => {
     console.log(submition);
     const [click, setClick] = useState(false)
+    const [gain_mark, setgain_mark]=useState('');
     const { _id, ownerEmail, submitLink, submiedMail, submitionTime, submitionAssId, Title, Marks, Description, Deadline, ObtainMark } = submition;
     const handleMark = (e) => {
         e.preventDefault()
-      
+      setgain_mark(e.target.ObtainMark.value);
         const updatedData = getFormData(e);
         console.log(updatedData);
         fetch(`http://localhost:5000/submition/${_id}`, {
@@ -34,19 +35,25 @@ const SingleMark = ({ submition }) => {
     }
     return (
         <div className="mb-7">
-            <div className="card  bg-mainTextcolor shadow-xl image-full">
+            <div className="card  bg-mainTextcolor shadow-xl">
                 <div className="card-body">
-                    <div className="flex justify-between px-12 ">
+                    <div className="sm:flex-none md:flex justify-between px-12 ">
                         <div className="space-y-3 text-xl text-buttonColor">
-                            Assignment link: <a className="text-[#FFFF00] underline " href={submitLink}>{submitLink}</a>
+                        Assignment link:
+                            <div className="overflow-auto w-96">
+                                
+                         <a className="text-[#FFFF00] underline " href={submitLink}>{submitLink}</a>
 
+                            </div>
                             <p >assignment Title : {Title}</p>
                             <p>Assignment Id : {submitionAssId}</p>
                             <p>Submited by : {submiedMail}</p>
                             <p>Submited Dathline : {Deadline}</p>
                             <p>Submited on : {submitionTime}</p>
                             <p>Total Mark : {Marks}</p>
-                            <p className="text-divColor font-bold">Obtain Mark : <span className="text-2xl text-[#FFFF00]"> {ObtainMark}</span> </p>
+                            {
+                              (ObtainMark||gain_mark)&&<p className="text-divColor font-bold">Obtain Mark : <span className="text-2xl text-[#FFFF00]"> {ObtainMark?ObtainMark:gain_mark}</span> </p>
+                                }
                         </div>
 
                         <div>

@@ -22,7 +22,8 @@ const Marked = () => {
     console.log(submitons);
     return (
         <div>
-            data : {submitons.length}
+            <h2 className="text-3xl font-bold  text-center p-5">Chack Assignment</h2>
+           
            {
             submitons.map(submition=><SingleMark key={submition._id} submition={submition}></SingleMark>)
             }

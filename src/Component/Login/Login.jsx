@@ -144,7 +144,7 @@ const Login = () => {
           <div className="form-control my-3 flex mx-7 mb-6 ">
 
 
-            <button className="btn btn-outline  text-blue-600 normal-case" onClick={handelgogle}> <FcGoogle className="w-7 h-7"></FcGoogle> Signin with google</button>
+            <button className="btn btn-outline  text-blue-600 normal-case" onClick={handelgogle}> <FcGoogle className="sm:w-3 md:w-7 sm:h-3 md:h-7"></FcGoogle> Signin with google</button>
           </div>
           {
             loginError && <p className="text-red-700">{loginError}</p>

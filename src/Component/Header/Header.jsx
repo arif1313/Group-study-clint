@@ -17,6 +17,7 @@ const Header = () => {
 
     <li><NavLink to="/login">Login</NavLink></li>
     <li><NavLink to="/sinup">Sign up</NavLink></li>
+    <li><NavLink to="/features">Features</NavLink></li>
   {
     user&& <>
      <li><NavLink to="/creatass">Creat Assignment</NavLink></li>
@@ -56,7 +57,7 @@ const Header = () => {
 
           <div className="navbar-end">
             {
-              user ? <> <span className=" ml-3 mr-4 text-base md:text-xl text-blck font-bold">{user.displayName}</span>
+              user ? <> <div className=" ml-3 mr-4 text-base text-blck font-bold">{user.displayName}</div>
          
            <img className="rounded-full h-10 w-19 mr-4" src={user.photoURL?user.photoURL:avatar} alt="" />
                      <label onClick={handleLogOut} className=" btn btn-sm bg-buttonColor normal-case">LogOut</label>

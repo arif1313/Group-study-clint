@@ -57,8 +57,8 @@ const AssignmentDetails = () => {
     return (
         <div>
          <div className="hero min-h-screen text-mainTextcolor">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <img src={ImgUrl} className="max-w-sm rounded-lg shadow-2xl" />
+  <div className="hero-content flex-col lg:flex-row-reverse ">
+    <img src={ImgUrl} className="max-w-sm rounded-lg shadow-2xl ml-10" />
     <div>
       <h1 className="text-5xl font-bold">{Title} <span className="badge badge-secondary badge-outline">{Difficulty}</span> </h1>
       <p className="py-6">{Description}</p>

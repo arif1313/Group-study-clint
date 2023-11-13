@@ -135,7 +135,7 @@ const SineUp = () => {
           <div className="form-control my-6 flex mx-7 ">
 
 
-<button className="btn btn-outline  text-blue-600 normal-case" onClick={handelgogle}> <FcGoogle className="w-7 h-7"></FcGoogle> Signin with google</button>
+<button className="btn btn-outline  text-blue-600 normal-case" onClick={handelgogle}> <FcGoogle className="sm:w-3 md:w-7 sm:h-3 md:h-7"></FcGoogle> Signin with google</button>
 </div>
 
         </div>

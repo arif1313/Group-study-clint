@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 
 import moment from 'moment';
 import { AutContext } from "../Contex/ContexApi";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
 
 
@@ -86,9 +86,7 @@ localStorage.setItem('isAssignmentSubmitted', 'true');
       </form>
       <div className=" w-full flex justify-center mb-3">
          
-      <div className="w-1/2 px-5">
-      <button className="btn btn-success bg-buttonColor w-full ">cancle</button>
-      </div>
+     
      
      </div>
     </div>

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AutContext } from "../Contex/ContexApi";
 import swal from 'sweetalert';
+import { Link } from "react-router-dom";
 
 const CreateAssignment = () => {
     const { user } = useContext(AutContext);
@@ -47,6 +48,7 @@ const CreateAssignment = () => {
     console.log(user)
     return (
         <div>
+           <h2 className="text-3xl font-bold  text-center p-5">Create a Assignment</h2>
             <div className="hero min-h-screen ">
     <div className="card flex-shrink-0 w-full shadow-2xl bg-divColor">
       <form className="card-body" onSubmit={handleCreate}>
@@ -99,7 +101,7 @@ const CreateAssignment = () => {
       </form>
       <div className="form-control flex mx-7 mb-5 ">
          
-         <button className="btn btn-success bg-buttonColor">cancle</button>
+         <Link to='/' className="btn btn-success bg-buttonColor">cancle</Link>
      
      </div>
     </div>

@@ -28,7 +28,7 @@ const Assignmentcard = ({Assignment,handleDelete}) => {
 
     return (
         <div className='mt-7 relative'>
-        <div  className='flex gap-16 mb-5 shadow-lg rounded-lg bg-divColor' >
+        <div  className='md:flex gap-16 mb-5 shadow-lg rounded-lg bg-divColor' >
             <div>
                     <img className=' border-divColor border-4 w-96 h-full rounded-lg' src={ImgUrl} alt="" />
             </div>
