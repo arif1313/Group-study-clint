@@ -17,7 +17,7 @@ const Header = () => {
 
     <li><NavLink to="/login">Login</NavLink></li>
     <li><NavLink to="/sinup">Sign up</NavLink></li>
-    <li><NavLink to="/features">Features</NavLink></li>
+   
   {
     user&& <>
      <li><NavLink to="/creatass">Creat Assignment</NavLink></li>

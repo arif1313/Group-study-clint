@@ -26,6 +26,7 @@ import Privet from './Component/Privet/Privet.jsx';
 import Submitio from './Component/Submition/Submitio.jsx';
 import Marked from './Component/MarkedAss/Marked.jsx';
 import Features from './Component/Features/Features.jsx';
+import Contact from './Component/Contact/contact.jsx';
 
 
 const router = createBrowserRouter([
@@ -77,11 +78,7 @@ const router = createBrowserRouter([
       path: '/marked',
       element:<Privet><Marked></Marked></Privet>
     },
-    {
-      path: '/features',
-      element: <Features></Features>,
-       loader:()=>fetch('http://localhost:5000/features')
-    }  
+  
     ]
   }
 ]);

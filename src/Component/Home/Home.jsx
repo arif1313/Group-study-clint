@@ -7,6 +7,9 @@ import { AutContext } from "../Contex/ContexApi";
 import { useRef } from "react";
 import {useNavigate } from "react-router-dom";
 import Carosol from "../Carosol/Carosol";
+import Features from "../Features/Features";
+import Faq from "../FreQuently/Faq";
+
 // import axios from "axios";
 
 
@@ -85,9 +88,10 @@ const handleSector =()=>{
 
     }
     return (
+        <>
         <div>
             <Carosol></Carosol>
-           
+          
             <div className="flex justify-center items-center">
             <div  className="text-center p-5 text-2xl font-bold text-mainTextcolor"><h2>
             Searh catagory 
@@ -100,14 +104,18 @@ const handleSector =()=>{
                     <option value="easy">easy</option>
                  
                 </select>   
-            
+           
             </div >
             { 
                 displayAssign.map(assignment => <Assignmentcard key={assignment._id} Assignment={assignment} handleDelete={handleDelete}  ></Assignmentcard>)
            
             } 
-    
+        
+           
         </div>
+        <Features></Features>
+        <Faq></Faq>
+        </>
     );
 };
 
