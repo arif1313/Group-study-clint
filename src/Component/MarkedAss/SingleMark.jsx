@@ -35,7 +35,7 @@ const SingleMark = ({ submition }) => {
     }
     return (
         <div className="mb-7">
-            <div className="card  bg-mainTextcolor shadow-xl">
+            <div className="card  bg-mainTextcolor shadow-xl image-full">
                 <div className="card-body">
                     <div className="sm:flex-none md:flex justify-between px-12 ">
                         <div className="space-y-3 text-xl text-buttonColor">

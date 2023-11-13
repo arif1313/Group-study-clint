@@ -4,6 +4,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 
 import { getAuth } from "firebase/auth";
 import app from "../../Firebase/Firebase.confiq";
+import axios from "axios";
 export const AutContext = createContext(null)
 const ContexApi = ({children}) => {
     const auth = getAuth(app)
@@ -41,8 +42,17 @@ const profileUpdate =(currntUser, name,url)=>{
 
 useEffect(()=>{
     const unSubscribe =  onAuthStateChanged(auth, courentUser=>{
+        const userEmail =courentUser?.email || user.email;
+        
          setUser(courentUser);
-         setlodding(false)
+         setlodding(false);
+         if(courentUser){
+            const loggedUser = {email: userEmail}
+            axios.post('http://localhost:5000/jwt', loggedUser,{withCredentials: true})
+            .then(res=>{
+                console.log('token respose',res.data)
+            })
+         }
      })
      return()=>{
          unSubscribe();

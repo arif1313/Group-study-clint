@@ -4,7 +4,7 @@ const Faq = () => {
     return (
         <div className="bg-divColor space-y-3 p-5 rounded-md text-mainTextcolor">
             <div className="collapse collapse-plus bg-base-200">
-  <input type="radio" name="my-accordion-3" checked="checked" /> 
+  <input type="radio" name="my-accordion-3" readOnly="readOnly" /> 
   <div className="collapse-title text-xl font-medium">
     How can I take Assignment?
   </div>
