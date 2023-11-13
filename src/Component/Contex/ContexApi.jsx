@@ -41,16 +41,22 @@ const profileUpdate =(currntUser, name,url)=>{
 } 
 
 useEffect(()=>{
-    const unSubscribe =  onAuthStateChanged(auth, courentUser=>{
-        const userEmail =courentUser?.email || user.email;
-        
-         setUser(courentUser);
+    const unSubscribe =  onAuthStateChanged(auth, currentUser=>{
+        const userEmail = currentUser?.email || user?.email;
+        const loggedUser = { email: userEmail };
+         setUser(currentUser);
+         console.log('current user', currentUser);
          setlodding(false);
-         if(courentUser){
-            const loggedUser = {email: userEmail}
+         if(currentUser){
+           
             axios.post('http://localhost:5000/jwt', loggedUser,{withCredentials: true})
             .then(res=>{
                 console.log('token respose',res.data)
+            })
+         }else{
+            axios.post('http://localhost:5000/logout', loggedUser,{withCredentials: true})
+            .then(res=>{
+                console.log(res.data)
             })
          }
      })
