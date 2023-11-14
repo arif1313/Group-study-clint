@@ -13,7 +13,7 @@ const AssignmentDetails = () => {
     
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}= Singleassignment;
     useEffect(() => {
-      fetch(`https://goup-server.vercel.app/mytakenAssignment?email=${user?.email}`)
+      fetch(`https://goup-server.vercel.app/assignments/${_id}`)
           .then((res) => res.json())
           .then((data) => setTakenAssignment(data));
   }, [user]);
