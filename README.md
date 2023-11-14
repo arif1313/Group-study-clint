@@ -17,6 +17,7 @@
 - use some  route and some privet route such as taken assignment, mark team
 - added forgote password system . if user forgot password he/ she can got new password by forgot sytem . this system a email will sen his email address and user can reset password.
 - in the porject use contex api . so can handle route easily 
+- user data is secure by jwt 
 
 
 ## [Click for visit project live Link](https://group-study-b0ce6.web.app/)
