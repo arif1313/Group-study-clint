@@ -26,7 +26,7 @@ const CreateAssignment = () => {
       
     }
     
-    fetch("http://localhost:5000/assignments", {
+    fetch("https://goup-server.vercel.app/assignments", {
       method: "POST", 
       headers: {
           'content-type': 'application/json',

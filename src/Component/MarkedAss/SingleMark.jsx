@@ -12,7 +12,7 @@ const SingleMark = ({ submition }) => {
       setgain_mark(e.target.ObtainMark.value);
         const updatedData = getFormData(e);
      
-        fetch(`http://localhost:5000/submition/${_id}`, {
+        fetch(`https://goup-server.vercel.app/submition/${_id}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json",

@@ -26,7 +26,7 @@ const Home = () => {
     
    
     useEffect(() => {
-        fetch('http://localhost:5000/assignments')
+        fetch('https://goup-server.vercel.app/assignments')
             .then(res => res.json())
             .then(data =>{
                 setDisplayAssign(data)
@@ -61,7 +61,7 @@ const handleSector =()=>{
         if (usermail === ownerEmail) {
             const procced = confirm('are you sure to delete? ')
             if (procced) {
-                fetch(`http://localhost:5000/assignments/${id}`,
+                fetch(`https://goup-server.vercel.app/assignments/${id}`,
                     {
                         method: 'DELETE'
 

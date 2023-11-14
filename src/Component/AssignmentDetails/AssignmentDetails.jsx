@@ -13,7 +13,7 @@ const AssignmentDetails = () => {
     
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}= Singleassignment;
     useEffect(() => {
-      fetch(`http://localhost:5000/mytakenAssignment?email=${user?.email}`,{credentials:'include'})
+      fetch(`https://goup-server.vercel.app/mytakenAssignment?email=${user?.email}`,{credentials:'include'})
       .then((res) => res.json())
       .then((data) => setTakenAssignment(data));
   }, [user]);
@@ -37,7 +37,7 @@ const AssignmentDetails = () => {
       Status: 'taken'
 
     };
-    fetch("http://localhost:5000/takenAssignment", {
+    fetch("https://goup-server.vercel.app/takenAssignment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

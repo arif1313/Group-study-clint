@@ -38,7 +38,7 @@ const Submitio =  () => {
         Deadline
        }
 
-       fetch("http://localhost:5000/submition", {
+       fetch("https://goup-server.vercel.app/submition", {
         method: "POST", 
         headers: {
             'content-type': 'application/json',
