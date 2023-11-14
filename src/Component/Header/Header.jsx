@@ -44,7 +44,7 @@ const Header = () => {
                 }
               </ul>
             </div>
-            <h2 className="btn btn-ghost normal-case text-base md:text-3xl font-bold">Group</h2>
+            <h2 className="btn btn-ghost normal-case text-base md:text-3xl font-bold">TaskPeg</h2>
           </div>
         
           <div className="navbar-center hidden lg:flex">
