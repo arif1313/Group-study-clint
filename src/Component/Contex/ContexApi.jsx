@@ -49,12 +49,12 @@ useEffect(()=>{
          setlodding(false);
          if(currentUser){
            
-            axios.post('https://goup-server.vercel.app/jwt', loggedUser,{withCredentials: true})
+            axios.post('http://localhost:5000/jwt', loggedUser,{withCredentials: true})
             .then(res=>{
                 console.log(res.data)
             })
          }else{
-            axios.post('https://goup-server.vercel.app/logout', loggedUser,{withCredentials: true})
+            axios.post('http://localhost:5000/logout', loggedUser,{withCredentials: true})
             .then(res=>{
                 console.log(res.data)
             })

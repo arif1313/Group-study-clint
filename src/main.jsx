@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
-        // loader:()=>fetch('https://goup-server.vercel.app/assignments')
+        // loader:()=>fetch('http://localhost:5000/assignments')
    
       },
       {
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
     {
       path: '/assignmentsDetails/:id',
       element:<Privet> <AssignmentDetails></AssignmentDetails></Privet>,
-      loader: ({params})=>fetch(`https://goup-server.vercel.app/assignments/${params.id}`)
+      loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
      
     },
     {
@@ -66,12 +66,12 @@ const router = createBrowserRouter([
     {
       path: '/update/:id',
       element:<Privet><Update></Update></Privet>,
-      loader: ({params})=>fetch(`https://goup-server.vercel.app/assignments/${params.id}`)
+      loader: ({params})=>fetch(`http://localhost:5000/assignments/${params.id}`)
     },
     {
       path: '/submition/:id',
       element: <Privet><Submitio></Submitio></Privet>,
-      loader: ({params})=>fetch(`https://goup-server.vercel.app/takenAssignment/${params.id}`)
+      loader: ({params})=>fetch(`http://localhost:5000/takenAssignment/${params.id}`)
      
     },
     {

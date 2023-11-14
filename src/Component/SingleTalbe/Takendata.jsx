@@ -11,7 +11,7 @@ const Takendata = ({taken,handleSubmit}) => {
   // const [gainMark, setgeinMark]= useState('');
   useEffect(()=>{
 
-    fetch(`https://goup-server.vercel.app/marksubmition?email=${user?.email}`)
+    fetch(`http://localhost:5000/marksubmition?email=${user?.email}`)
     .then(res=>res.json())
     .then(data=>setSingleSubmited(data))
   },[])

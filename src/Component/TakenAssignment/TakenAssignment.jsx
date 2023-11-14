@@ -9,7 +9,7 @@ const TakenAssignment = () => {
     const { user } = useContext(AutContext);
     const [takeassignment, setTakenAssignment] = useState([]);
     useEffect(() => {
-        fetch(`https://goup-server.vercel.app/mytakenAssignment?email=${user?.email}`,{credentials:'include'})
+        fetch(`http://localhost:5000/mytakenAssignment?email=${user?.email}`,{credentials:'include'})
             .then((res) => res.json())
             .then((data) => setTakenAssignment(data));
     }, [user]);
@@ -17,7 +17,7 @@ const TakenAssignment = () => {
 
     const handleSubmit = (id) => {
      
-        fetch(`https://goup-server.vercel.app/mytakenAssignment/${id}`, {
+        fetch(`http://localhost:5000/mytakenAssignment/${id}`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json",

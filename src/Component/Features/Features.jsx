@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const Features = () => {
     const[ allFeatures, setallfeture] = useState([])
     useEffect(()=>{
-        fetch('https://goup-server.vercel.app/features')
+        fetch('http://localhost:5000/features')
         .then(res=>res.json())
         .then(data=>setallfeture(data))
     },[])

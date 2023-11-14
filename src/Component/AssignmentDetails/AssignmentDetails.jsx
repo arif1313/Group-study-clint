@@ -13,13 +13,13 @@ const AssignmentDetails = () => {
     
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}= Singleassignment;
     useEffect(() => {
-      fetch(`https://goup-server.vercel.app/assignments/${_id}`)
-          .then((res) => res.json())
-          .then((data) => setTakenAssignment(data));
+      fetch(`http://localhost:5000/mytakenAssignment?email=${user?.email}`,{credentials:'include'})
+      .then((res) => res.json())
+      .then((data) => setTakenAssignment(data));
   }, [user]);
 
 
-  const matchAssignmet = takeassignment.find(obj => obj.assingnment_Id===_id)
+ const matchAssignmet = takeassignment.find(obj => obj.assingnment_Id===_id)
 
 
    const handleAddAssignment =()=>{
@@ -37,7 +37,7 @@ const AssignmentDetails = () => {
       Status: 'taken'
 
     };
-    fetch("https://goup-server.vercel.app/takenAssignment", {
+    fetch("http://localhost:5000/takenAssignment", {
       method: "POST",
       headers: {
         "content-type": "application/json",
