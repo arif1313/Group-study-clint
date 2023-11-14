@@ -19,4 +19,4 @@
 - in the porject use contex api . so can handle route easily 
 
 
-## [Click for visit project live Link](https://group-study-b0ce6.web.app)
+## [Click for visit project live Link](https://group-study-b0ce6.web.app/)
