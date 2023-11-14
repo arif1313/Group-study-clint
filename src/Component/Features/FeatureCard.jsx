@@ -1,7 +1,7 @@
 
 
 const FeatureCard = ({featear}) => {
-    const {title,description,imgUrl,members,meetingTime,location,tags }= featear;
+    const {title,description }= featear;
 
     return (
         <div>

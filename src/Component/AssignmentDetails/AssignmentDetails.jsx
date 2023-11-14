@@ -1,6 +1,6 @@
 
 import { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { AutContext } from "../Contex/ContexApi";
 import swal from "sweetalert";
 
@@ -11,9 +11,9 @@ const AssignmentDetails = () => {
     const [click, setClick]=useState(false);
     const [takeassignment, setTakenAssignment] = useState([]);
     
-    const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline,Status}= Singleassignment;
+    const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}= Singleassignment;
     useEffect(() => {
-      fetch(`http://localhost:5000/mytakenAssignment?email=${user?.email}`)
+      fetch(`https://goup-server.vercel.app/mytakenAssignment?email=${user?.email}`)
           .then((res) => res.json())
           .then((data) => setTakenAssignment(data));
   }, [user]);
@@ -37,7 +37,7 @@ const AssignmentDetails = () => {
       Status: 'taken'
 
     };
-    fetch("http://localhost:5000/takenAssignment", {
+    fetch("https://goup-server.vercel.app/takenAssignment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

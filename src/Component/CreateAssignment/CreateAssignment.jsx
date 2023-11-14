@@ -26,7 +26,7 @@ const CreateAssignment = () => {
       
     }
     
-    fetch("http://localhost:5000/assignments", {
+    fetch("https://goup-server.vercel.app/assignments", {
       method: "POST", 
       headers: {
           'content-type': 'application/json',
@@ -35,7 +35,7 @@ const CreateAssignment = () => {
   })
   .then(res => res.json())
   .then(data => {
-      console.log(data);
+     
       if(data.insertedId){
         swal("Good job!", "You clicked the button!", "success");
       }
@@ -45,7 +45,7 @@ const CreateAssignment = () => {
 };
 
     
-    console.log(user)
+    
     return (
         <div>
            <h2 className="text-3xl font-bold  text-center p-5">Create a Assignment</h2>

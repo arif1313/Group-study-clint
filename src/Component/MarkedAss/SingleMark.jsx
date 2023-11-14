@@ -6,13 +6,13 @@ const SingleMark = ({ submition }) => {
     console.log(submition);
     const [click, setClick] = useState(false)
     const [gain_mark, setgain_mark]=useState('');
-    const { _id, ownerEmail, submitLink, submiedMail, submitionTime, submitionAssId, Title, Marks, Description, Deadline, ObtainMark } = submition;
+    const { _id,  submitLink, submiedMail, submitionTime, submitionAssId, Title, Marks,  Deadline, ObtainMark } = submition;
     const handleMark = (e) => {
         e.preventDefault()
       setgain_mark(e.target.ObtainMark.value);
         const updatedData = getFormData(e);
-        console.log(updatedData);
-        fetch(`http://localhost:5000/submition/${_id}`, {
+     
+        fetch(`https://goup-server.vercel.app/submition/${_id}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json",
@@ -26,7 +26,7 @@ const SingleMark = ({ submition }) => {
                 if (data.modifiedCount > 0) {
                     swal('updated succesfully')
 
-                    // updata state
+                    
                 }
             })
         e.target.reset();

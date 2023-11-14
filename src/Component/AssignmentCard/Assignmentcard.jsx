@@ -10,7 +10,7 @@ import { AutContext } from "../Contex/ContexApi";
 const Assignmentcard = ({Assignment,handleDelete}) => {
     const { user } = useContext(AutContext);
     const userMail = user?.email;
-    console.log(userMail)
+   
     const navigate =useNavigate();
     
     const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline}=Assignment;

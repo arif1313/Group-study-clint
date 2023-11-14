@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from "react";
 
 import moment from 'moment';
 import { AutContext } from "../Contex/ContexApi";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
 
 
 const Submitio =  () => {
     const submitiontargetdata = useLoaderData();
-    const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline,gotUserEmail,assingnment_Id,Status}= submitiontargetdata;
+    const {Title,Marks,ownerEmail,Description,Deadline,assingnment_Id}= submitiontargetdata;
     const [isSubmitted, setSubmitted] = useState(false);
     const { user } = useContext(AutContext);
 
@@ -38,7 +38,7 @@ const Submitio =  () => {
         Deadline
        }
 
-       fetch("http://localhost:5000/submition", {
+       fetch("https://goup-server.vercel.app/submition", {
         method: "POST", 
         headers: {
             'content-type': 'application/json',
@@ -52,12 +52,10 @@ const Submitio =  () => {
           swal("Good job!", "You clicked the button!", "success");
         }
     });
-// //////////
 setSubmitted(true);
 
-// Store the information in localStorage to persist it across page reloads
 localStorage.setItem('isAssignmentSubmitted', 'true');
-    // //////////
+   
     e.target.reset();
 
     }

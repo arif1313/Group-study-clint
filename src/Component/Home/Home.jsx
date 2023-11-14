@@ -17,7 +17,7 @@ import Faq from "../FreQuently/Faq";
 const Home = () => {
     const { user } = useContext(AutContext);
     const usermail = user?.email;
-    console.log('usermail is ', usermail);
+  
     const [displayAssign, setDisplayAssign]= useState([]);
     const [assignments, setAsssignmen] = useState([]);
   const navigate = useNavigate();
@@ -26,21 +26,20 @@ const Home = () => {
     
    
     useEffect(() => {
-        fetch('http://localhost:5000/assignments')
+        fetch('https://goup-server.vercel.app/assignments')
             .then(res => res.json())
             .then(data =>{
                 setDisplayAssign(data)
                 setAsssignmen(data)
             })
     }, [])
-    console.log(assignments)
-    console.log(displayAssign)
+  
    
-    console.log('hello')
+ 
 const handleSector =()=>{
   
    const catagory = CaraRef.current.value;
-   console.log('catagory',catagory)
+  
    if(catagory==='all')
    {
     setDisplayAssign(assignments)
@@ -62,7 +61,7 @@ const handleSector =()=>{
         if (usermail === ownerEmail) {
             const procced = confirm('are you sure to delete? ')
             if (procced) {
-                fetch(`http://localhost:5000/assignments/${id}`,
+                fetch(`https://goup-server.vercel.app/assignments/${id}`,
                     {
                         method: 'DELETE'
 
@@ -113,6 +112,7 @@ const handleSector =()=>{
         
            
         </div>
+
         <Features></Features>
         <Faq></Faq>
         </>

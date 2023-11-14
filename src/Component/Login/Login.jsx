@@ -69,13 +69,9 @@ const Login = () => {
       
         // access token
         console.log(LoggedInUser)
-        // const user = {email};
+      
         navigate(location?.state ? location.state : '/')
-        // axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
-        // .then(res =>{
-        //   console.log(res.data)
-         
-        // })
+       
 
 
 

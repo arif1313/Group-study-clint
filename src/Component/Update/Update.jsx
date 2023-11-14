@@ -13,9 +13,9 @@ const Update = () => {
     e.preventDefault()
     
    const updatedData = getFormData(e);
-  console.log('updatedata',updatedData);
+ 
   console.log(ownerEmail,_id)
-  fetch(`http://localhost:5000/assignments/${_id}`,{
+  fetch(`https://goup-server.vercel.app/assignments/${_id}`,{
     method: 'PUT',
     headers:{
         "content-type": "application/json",

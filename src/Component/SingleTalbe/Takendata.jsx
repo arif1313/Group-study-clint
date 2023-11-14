@@ -1,35 +1,35 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2'
+
 import { AutContext } from "../Contex/ContexApi";
 
 
 const Takendata = ({taken,handleSubmit}) => {
   const { user } = useContext(AutContext);
-    const {_id,Title,Marks,ImgUrl,Difficulty,ownerEmail,Description,Deadline,gotUserEmail,assingnment_Id,Status}=taken;
+    const {_id,Title,Marks,Deadline,assingnment_Id,Status}=taken;
   const [singleSubmited, setSingleSubmited]=useState([])
   // const [gainMark, setgeinMark]= useState('');
   useEffect(()=>{
 
-    fetch(`http://localhost:5000/marksubmition?email=${user?.email}`)
+    fetch(`https://goup-server.vercel.app/marksubmition?email=${user?.email}`)
     .then(res=>res.json())
     .then(data=>setSingleSubmited(data))
   },[])
 
  const  matchSubmiteddata = singleSubmited.find(obj=>obj.submitionAssId === assingnment_Id)
-//  matchSubmiteddata && setgeinMark(matchSubmiteddata.ObtainMark);
+
   
  
   console.log('submitmarkdata',singleSubmited)
   
-  // console.log(Object.keys(matchSubmiteddata).join(","))
+
   
     return (
 
         <>
 
         <tbody className="font-bold">
-        {/* row 1 */}
+     
         <tr className="bg-divColor shadow-lg">
           
           <td>
