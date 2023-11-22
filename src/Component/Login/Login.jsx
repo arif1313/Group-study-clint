@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import loginimg from '../../../public/images/R-removebg-preview.png'
-import axios from "axios";
+
 
 
 const Login = () => {
@@ -66,12 +66,12 @@ const Login = () => {
     SinIn(email, password)
       .then(result => {
         const LoggedInUser = result.user;
-      
+
         // access token
         console.log(LoggedInUser)
-      
+
         navigate(location?.state ? location.state : '/')
-       
+
 
 
 
